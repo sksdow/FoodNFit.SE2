@@ -1,5 +1,7 @@
 {
   "name": "FoodnFit",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

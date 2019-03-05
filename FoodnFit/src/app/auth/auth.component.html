@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Authentication
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-label>Register</ion-label>
+      <ion-input placeholder="email" [(ngModel)]="userToRegister.email"></ion-input>
+      <ion-input placeholder="password" [(ngModel)]="userToRegister.password"></ion-input>
+      <ion-button (click)="tryRegister()">register user</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Login</ion-label>
+      <ion-input placeholder="email" [(ngModel)]="userToLogin.email"></ion-input>
+      <ion-input placeholder="password" [(ngModel)]="userToLogin.password"></ion-input>
+      <ion-button (click)="tryLogin()">login</ion-button>
+    </ion-item>
+  </ion-content>
+  

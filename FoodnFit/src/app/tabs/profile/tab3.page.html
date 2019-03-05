@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Update Name</ion-label>
+    <ion-input placeholder="name" [(ngModel)]="userToUpdate.name"></ion-input>
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
+  </ion-item>
+  <div>updated user info</div>
+  <div>email: {{updatedUser.email}}</div>
+  <div>email: {{updatedUser.name}}</div>
+  <ion-button (click)="logOut()">Log Out</ion-button>
+</ion-content>
