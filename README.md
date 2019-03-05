@@ -23,7 +23,7 @@ https://sourceforge.net/projects/kdiff3/
 get oath token from github page, paste into tools-plugin-github</br>
 generate ssh key, authenticate in github page
 
-# Compiling  
+## Compiling  
 open vscode, open the foodnfit folder </br>
 run `npm install` on vscode terminal</br>
 run code with : `ionic serve`
