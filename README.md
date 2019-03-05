@@ -17,7 +17,7 @@ npm install -g cordova
 https://github.com/gitextensions/gitextensions/releases/tag/v3.0.2#hovercard-aria-description
 https://sourceforge.net/projects/kdiff3/  
 --instructions--  
-get oath token from github page, paste into toolsplugin-github
+get oath token from github page, paste into tools-plugin-github</br>
 generate ssh key, authenticate in github page
 
 # Compiling  
