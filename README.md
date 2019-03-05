@@ -8,7 +8,7 @@ https://code.visualstudio.com/
 #### node.js lts
 https://nodejs.org/en/  
 --instructions--  
-after node.js download run  
+after node.js download run on terminal </br>
 npm install -g ionic  
 npm install -g angular-cli  
 npm install -g cordova
