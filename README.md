@@ -19,3 +19,7 @@ https://sourceforge.net/projects/kdiff3/
 --instructions--  
 get oath token from github page, paste into toolsplugin-github
 generate ssh key, authenticate in github page
+
+# Compiling  
+open vscode, open the foodnfit folder  
+run code with : `ionic serve` on vscode terminal
