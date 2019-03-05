@@ -5,6 +5,9 @@ Software Engineering 2 group project
 #### visual studio code  
 https://code.visualstudio.com/
 
+#### Git
+https://git-scm.com/downloads
+
 #### node.js lts
 https://nodejs.org/en/  
 --instructions--  
