@@ -1,4 +1,4 @@
-# GROUP.SE-2
+# Food n Fit
 Software Engineering 2 group project
 ## download and setup
 
