@@ -16,6 +16,9 @@ npm install -g ionic
 npm install -g angular-cli  
 npm install -g cordova
 
+#### kdiff3 (for windows)
+https://sourceforge.net/projects/kdiff3/files/latest/download
+
 #### git extension
 https://github.com/gitextensions/gitextensions/releases/tag/v3.0.2#hovercard-aria-description
 https://sourceforge.net/projects/kdiff3/  
