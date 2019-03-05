@@ -21,5 +21,6 @@ get oath token from github page, paste into toolsplugin-github
 generate ssh key, authenticate in github page
 
 # Compiling  
-open vscode, open the foodnfit folder  
+open vscode, open the foodnfit folder
+run `npm install`
 run code with : `ionic serve` on vscode terminal
