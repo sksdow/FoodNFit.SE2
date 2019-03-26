@@ -13,8 +13,7 @@ import { RecipeShort, RecipeDetailed } from "src/app/dtos/recipe.dto";
 export class Tab1Page {
   currentIngredients: string[] = [];
   ingredientToAdd: string;
-  searchResults: RecipeShort[];
-  recipeDetails: RecipeDetailed[];
+  searchResults: RecipeDetailed[];
   constructor(private dataService: DataService) {}
 
   searchRecipes() {
@@ -23,26 +22,14 @@ export class Tab1Page {
       .subscribe(x => {
         if (x !== null) {
           this.searchResults = x;
-          this.dataService
-            .getRecipesDetails(this.searchResults)
-            .subscribe(x => {
-              this.recipeDetails = x;
-              subscription.unsubscribe();
-            });
+          console.log(x);
+          subscription.unsubscribe();
         }
       });
   }
 
-  getRecipeInfo(recipeShort: RecipeShort): RecipeDetailed {
-    for (const info of this.recipeDetails) {
-      if (info.id === recipeShort.id) {
-        return info;
-      }
-    }
-  }
-
-  addFoodToUser(recipeShort: RecipeShort) {
-    this.dataService.addFoodToUser(this.getRecipeInfo(recipeShort));
+  addFoodToUser(recipe: RecipeDetailed) {
+    this.dataService.addFoodToUser(recipe);
   }
 
 }

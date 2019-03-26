@@ -36,7 +36,7 @@ export class DataService {
     this.users = this.userCollection.valueChanges();
   }
 
-  getRecipesByIngredients(ingredients: string[], resultCount?: number): Observable<RecipeShort[]> {
+  getRecipesByIngredients(ingredients: string[], resultCount?: number): Observable<RecipeDetailed[]> {
     let requestURI = this.getRecipesByIngredientsURI.replace(
       "{ingredients}",
       ""
@@ -52,7 +52,8 @@ export class DataService {
         "X-RapidAPI-Key": this.rapidApiKey
       })
     };
-    return this.http.get(requestURI, httpOptions).pipe(
+    let result = new BehaviorSubject<RecipeDetailed[]>(null);
+    const subscription = this.http.get(requestURI, httpOptions).pipe(
       map((value: Object[], index: number) => {
         let recipes: RecipeShort[] = [];
         value.forEach(x => {
@@ -60,10 +61,18 @@ export class DataService {
         });
         return recipes;
       })
-    );
+    ).subscribe(recipes => {
+      this.getRecipesDetails(recipes).subscribe(
+        recipesDetails => {
+          result.next(recipesDetails);
+          subscription.unsubscribe();
+        }
+      )
+    });
+    return result;
   }
 
-  getRecipesDetails(recipes: RecipeShort[]): Observable<RecipeDetailed[]> {
+  private getRecipesDetails(recipes: RecipeShort[]): Observable<RecipeDetailed[]> {
     let requestURI = this.getRecipesInfoURI.replace("{ids}", "");
     recipes.forEach(x => {
       requestURI = requestURI + x.id + "%2C";
