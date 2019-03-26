@@ -110,8 +110,8 @@ export class DataService {
         user.DietHistory.push(food);
         this.updateUserInfo(user).finally(() => {
           result.next(true);
+          subscription.unsubscribe();
         });
-        subscription.unsubscribe();
       }
     });
     return result;
@@ -124,8 +124,8 @@ export class DataService {
         user.DietHistory.splice(user.DietHistory.indexOf(foodToDelete), 1);
         this.updateUserInfo(user).finally(() => {
           result.next(true);
-        });;
-        subscription.unsubscribe();
+          subscription.unsubscribe();
+        });
       }
     });
     return result;
