@@ -8,4 +8,12 @@
 
 <ion-content>
   Implement calories calculator
+  <div *ngIf="userInfo && userInfo?.DietHistory">
+    food Consumptions:
+    <div *ngFor="let food of userInfo.DietHistory">
+      {{food.date}} &nbsp;
+      {{food.recipe.title}}
+      <ion-button (click)="deleteFood(food)">delete</ion-button>
+    </div>
+  </div>
 </ion-content>

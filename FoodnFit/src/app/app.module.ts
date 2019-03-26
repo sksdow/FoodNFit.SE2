@@ -19,6 +19,8 @@ import { DataService } from "./services/data.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AuthService } from "./services/auth.service";
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule, DatePipe } from '@angular/common';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyC8I2WIty6Nyij80F43FpDzs_zw-xzb1Ds",
@@ -34,14 +36,17 @@ export const firebaseConfig = {
   entryComponents: [],
   imports: [
     BrowserModule,
+    CommonModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
   ],
   providers: [
+    DatePipe,
     StatusBar,
     SplashScreen,
     AngularFireDatabase,

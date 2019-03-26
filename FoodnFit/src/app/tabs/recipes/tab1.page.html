@@ -6,6 +6,25 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-button (click)="insertRecipe()">insert test recipe</ion-button>
-  <ion-button (click)="getRecipes()">get recipes</ion-button>
+  <ion-input
+    placeholder="Add Ingredient To Filter"
+    [(ngModel)]="ingredientToAdd"
+  ></ion-input>
+  <ion-button (click)="currentIngredients.push(ingredientToAdd)"
+    >Confirm</ion-button
+  >
+  <div>
+    Current Filters:
+    <div *ngFor="let i of currentIngredients">{{ i }}</div>
+  </div>
+  <ion-button (click)="currentIngredients = []">Reset</ion-button>
+  <ion-button (click)="searchRecipes()">Search</ion-button>
+  <div *ngIf="searchResults !== undefined">
+    Results:
+    <div *ngFor="let i of searchResults">
+      {{i.title}}
+      <ion-img style="height: 30%; width:30%" [src]="i.image"></ion-img>
+      <ion-button (click)="addFoodToUser(i)">Add To Profile</ion-button>
+    </div>
+  </div>
 </ion-content>

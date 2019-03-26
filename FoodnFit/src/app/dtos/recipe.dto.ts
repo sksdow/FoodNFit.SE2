@@ -1,10 +1,50 @@
-export interface Recipe{
-    id;
-    description: string;
-    ingredients: Ingredients[];
+export interface RecipeDetailed {
+    aggregateLikes
+    analyzedInstructions
+    cheap
+    cookingMinutes
+    creditText
+    creditsText
+    cuisines
+    dairyFree
+    diets
+    dishTypes
+    extendedIngredients
+    gaps
+    glutenFree
+    healthScore
+    id
+    image
+    imageType
+    instructions
+    ketogenic
+    lowFodmap
+    nutrition
+    occasions
+    preparationMinutes
+    pricePerServing
+    readyInMinutes
+    servings
+    sourceName
+    sourceUrl
+    spoonacularScore
+    spoonacularSourceUrl
+    sustainable
+    title
+    vegan
+    vegetarian
+    veryHealthy
+    veryPopular
+    weightWatcherSmartPoints
+    whole30
+    winePairing
 }
 
-export interface Ingredients {
-    description: string;
-    amount: string;
+export interface RecipeShort {
+  id;
+  title;
+  image;
+  usedIngredientCount;
+  missedIngredientCount;
+  likes;
 }
