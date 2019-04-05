@@ -41,7 +41,8 @@ export class AuthService {
       .then(user => {
         const userInfo: User = {
           email: userToReg.email,
-          name: ""
+          name: "",
+          weight: 0
         };
         this.userCollection.doc(user.user.uid).set(userInfo);
       })
