@@ -4,6 +4,8 @@ export interface User{
     email;
     name;
     weight;
+    age;
+    height;
     DietHistory?: Consumption[];
 }
 

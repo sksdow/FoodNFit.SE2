@@ -42,7 +42,9 @@ export class AuthService {
         const userInfo: User = {
           email: userToReg.email,
           name: "",
-          weight: 0
+          weight: 0,
+          age: 0,
+          height: 0
         };
         this.userCollection.doc(user.user.uid).set(userInfo);
       })

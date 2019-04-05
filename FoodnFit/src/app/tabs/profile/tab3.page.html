@@ -8,13 +8,23 @@
 
 <ion-content>
   <ion-item>
-    <ion-label>Update Name</ion-label>
-    <ion-input placeholder="name" [(ngModel)]="userToUpdate.name"></ion-input>
-    <ion-input placeholder="weight" [(ngModel)]="userToUpdate.weight"></ion-input>
+    <ion-label>Update Information | </ion-label>
+    <ion-label> Name: </ion-label>
+    <ion-input placeholder="Name" [(ngModel)]="userToUpdate.name"></ion-input>
+    <ion-label>Age: </ion-label>
+    <ion-input placeholder="Age" [(ngModel)]="userToUpdate.age"></ion-input>
+    <ion-label>Weight (lbs): </ion-label>
+    <ion-input placeholder="Weight" [(ngModel)]="userToUpdate.weight"></ion-input>
+    <ion-label>Height (inches): </ion-label>
+    <ion-input placeholder="Height" [(ngModel)]="userToUpdate.height"></ion-input>
     <ion-button (click)="updateUserInfo()">confirm</ion-button>
   </ion-item>
-  <div>updated user info</div>
-  <div>email: {{updatedUser.email}}</div>
-  <div>email: {{updatedUser.name}}</div>
+  <div>User Information</div>
+  <div>Eamil: {{updatedUser.email}}</div>
+  <div>Name: {{updatedUser.name}}</div>
+  <div>Age: {{updatedUser.age}}</div>
+  <div>Weight: {{updatedUser.weight}}</div>
+  <div>Height {{updatedUser.height}}</div>
+
   <ion-button (click)="logOut()">Log Out</ion-button>
 </ion-content>
