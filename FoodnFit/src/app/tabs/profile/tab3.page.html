@@ -17,12 +17,14 @@
     <ion-input placeholder="Weight" [(ngModel)]="userToUpdate.weight"></ion-input>
     <ion-label>Height (inches): </ion-label>
     <ion-input placeholder="Height" [(ngModel)]="userToUpdate.height"></ion-input>
-    <ion-button (click)="updateUserInfo()">confirm</ion-button>
     <ion-label> Activity Level (1-5):  </ion-label>
     <ion-input placeholder="" [(ngModel)]="userToUpdate.activitylevel"></ion-input>
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
+    
   </ion-item>
+  <div>-------------</div>
   <div>User Information</div>
-  <div></div>
+  <div>-------------</div>
   <div>Eamil: {{updatedUser.email}}</div>
   <div>Name: {{updatedUser.name}}</div>
   <div>Age: {{updatedUser.age}}</div>

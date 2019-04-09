@@ -3,6 +3,7 @@ import { DataService } from "src/app/services/data.service";
 import { User, Consumption } from "src/app/dtos/user.dto";
 import { Calorie } from 'src/app/dtos/calorie.dto';
 
+
 @Component({
   selector: "app-tab2",
   templateUrl: "tab2.page.html",
@@ -44,10 +45,10 @@ export class Tab2Page {
         //     }
         //   }
         // )
+        this.mainCalculator();
         subscription.unsubscribe();
       }
     });
-    this.mainCalculator();
   }
 
   deleteFood(food: Consumption) {
@@ -64,16 +65,17 @@ export class Tab2Page {
   }
   //make display method
   mainCalculator(){
-  // let height = this.userInfo.height;
-  // let weight = this.userInfo.weight;
-  // let age = this.userInfo.age;
-  // let activityLevel = this.userInfo.activitylevel;
-  // let gender = this.userInfo.gender;
-   let height = 70;
-   let weight = 170;
-   let age = 21;
-   let activityLevel = 4;
-   let gender = "m";
+  let height = this.userInfo.height;
+  let weight = this.userInfo.weight;
+  let age = this.userInfo.age;
+  let activityLevel = this.userInfo.activitylevel;
+  let gender = this.userInfo.gender;
+  console.log(this.userInfo);
+  //  let height = 70;
+  //  let weight = 170;
+  //  let age = 21;
+  //  let activityLevel = 4;
+  //  let gender = "m";
 
   weight = weight * .45359;
   height = height * 2.54;
@@ -93,19 +95,19 @@ export class Tab2Page {
     //getTDEE
     switch (activityLevel)
 		{
-		case 1:
+		case "1":
     this.display.TDEE = this.display.BMR*1.2;
 			break;
-		case 2:
+		case "2":
     this.display.TDEE = this.display.BMR *1.375;
 			break;
-		case 3:
+		case "3":
     this.display.TDEE = this.display.BMR *1.55;
 			break;
-		case 4:
+		case "4":
     this.display.TDEE = this.display.BMR *1.725;
 			break;
-		case 5:
+		case "5":
     this.display.TDEE  = this.display.BMR * 1.9;
 			break;
     }
