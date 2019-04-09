@@ -9,8 +9,21 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  userToUpdate: User = { email: "", name: "Name" , weight: 0, age: 0, height: 0};
-  updatedUser: User = {email: "", name: "", weight: "", age: "", height: ""};
+
+  userToUpdate: User = { email: "test",
+  name: "Name",
+  height: 0.00,
+  weight: 0.00,
+  age: 0,
+  gender: 'm',
+  activitylevel: 0 };
+  updatedUser: User = {email: "test",
+  name: "Name",
+  height: 0.00,
+  weight: 0.00,
+  age: 0,
+  gender: 'm',
+  activitylevel: 0};
   constructor(
     private dataService: DataService,
     private authService: AuthService

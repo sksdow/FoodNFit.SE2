@@ -3,9 +3,11 @@ import { RecipeDetailed } from './recipe.dto';
 export interface User{
     email;
     name;
+    height;
     weight;
     age;
-    height;
+    gender;
+    activitylevel;
     DietHistory?: Consumption[];
 }
 
