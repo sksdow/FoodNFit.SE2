@@ -18,14 +18,14 @@
   </div>
 </ion-content> -->
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar class="rednav">
+    <ion-title class="title">
       Calories
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="bgred">
   <div *ngIf="userInfo && userInfo?.DietHistory">
     food Consumptions:
     <div *ngFor="let food of userInfo.DietHistory">

@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar class="rednav">
+    <ion-title class="title"> 
       Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="bgred">
   <ion-item>
     <ion-label>Update Information | </ion-label>
     <ion-label> Name: </ion-label>
@@ -17,9 +17,9 @@
     <ion-input placeholder="Weight" [(ngModel)]="userToUpdate.weight"></ion-input>
     <ion-label>Height (inches): </ion-label>
     <ion-input placeholder="Height" [(ngModel)]="userToUpdate.height"></ion-input>
-    <ion-button (click)="updateUserInfo()">confirm</ion-button>
     <ion-label> Activity Level (1-5):  </ion-label>
     <ion-input placeholder="" [(ngModel)]="userToUpdate.activitylevel"></ion-input>
+    <ion-button class="blackbtn" (click)="updateUserInfo()">confirm</ion-button>
   </ion-item>
   <div>User Information</div>
   <div></div>
@@ -29,5 +29,5 @@
   <div>Weight: {{updatedUser.weight}}</div>
   <div>Height: {{updatedUser.height}}</div>
   <div>Activity Level: {{updatedUser.activitylevel}}</div>
-  <ion-button (click)="logOut()">Log Out</ion-button>
+  <ion-button class="blackbtn" (click)="logOut()">Log Out</ion-button>
 </ion-content>

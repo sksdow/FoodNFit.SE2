@@ -9,3 +9,21 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.rednav {
+    --background: crimson !important;
+}
+
+.bgred {
+    --background: #fdd9d6;
+}
+
+.blackbtn {
+    --background: black;
+}
