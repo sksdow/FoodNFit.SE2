@@ -42,8 +42,12 @@ export class Tab3Page {
 
   private getUserInfo() {
     const subscription = this.dataService.getUserInfo().subscribe(user => {
+    
+    
       if (user) {
         this.updatedUser = user;
+        this.userToUpdate = user;
+      
         subscription.unsubscribe();
       }
     });

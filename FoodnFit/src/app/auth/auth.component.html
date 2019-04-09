@@ -1,22 +1,22 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>
+    <ion-toolbar class="rednav">
+      <ion-title class="title">
         Authentication
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="bgred">
     <ion-item>
       <ion-label>Register</ion-label>
       <ion-input placeholder="email" [(ngModel)]="userToRegister.email"></ion-input>
       <ion-input placeholder="password" [(ngModel)]="userToRegister.password"></ion-input>
-      <ion-button (click)="tryRegister()">register user</ion-button>
+      <ion-button class="blackbtn" (click)="tryRegister()">register user</ion-button>
     </ion-item>
     <ion-item>
       <ion-label>Login</ion-label>
       <ion-input placeholder="email" [(ngModel)]="userToLogin.email"></ion-input>
       <ion-input placeholder="password" [(ngModel)]="userToLogin.password"></ion-input>
-      <ion-button (click)="tryLogin()">login</ion-button>
+      <ion-button class="blackbtn" (click)="tryLogin()">login</ion-button>
     </ion-item>
   </ion-content>
   

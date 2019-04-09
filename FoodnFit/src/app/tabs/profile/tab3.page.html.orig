@@ -19,8 +19,12 @@
     <ion-input placeholder="Height" [(ngModel)]="userToUpdate.height"></ion-input>
     <ion-label> Activity Level (1-5):  </ion-label>
     <ion-input placeholder="" [(ngModel)]="userToUpdate.activitylevel"></ion-input>
-    <ion-button class="blackbtn" (click)="updateUserInfo()">confirm</ion-button>
+<<<<<<< HEAD
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
     
+=======
+    <ion-button class="blackbtn" (click)="updateUserInfo()">confirm</ion-button>
+>>>>>>> 04f6ebf9c33f6f1d8958f689a49b8ba26a61fcc2
   </ion-item>
   <div>-------------</div>
   <div>User Information</div>
