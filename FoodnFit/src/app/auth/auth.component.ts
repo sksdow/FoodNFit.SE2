@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { NavController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { Auth } from '../dtos/auth.dto';
 import { Router } from '@angular/router';
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
   userToRegister: Auth = { email: "", password: "" };
-  userToLogin: Auth = { email: "test@test.co", password: "123456" };
+  userToLogin: Auth = { email: "", password: "" };
 
   constructor(
     private authService: AuthService,
@@ -18,12 +19,13 @@ export class AuthComponent {
   ) {}
 
   tryRegister() {
+    
     this.authService.emailSignUp(this.userToRegister).then(
       res => {
-        console.log(res);
+        console.log("Success" , res);
       },
       err => {
-        console.log(err);
+        console.log("In page:" , err);
       }
     );
   }
@@ -38,6 +40,12 @@ export class AuthComponent {
         console.log(err);
       }
     );
+  }
+
+  goToSignup(){
+    
+    this.router.navigateByUrl('/signup')
+    //this.navCtrl.goForward();
   }
 
 }

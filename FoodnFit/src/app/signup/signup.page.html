@@ -1,0 +1,23 @@
+<ion-header>
+ 
+      
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Signup</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-label stacked>Email</ion-label>
+    <ion-input placeholder="Your email address" [(ngModel)]="userToRegister.email"> </ion-input>
+  
+    <ion-label stacked>Password</ion-label>
+    <ion-input  placeholder="Your password" [(ngModel)] = "userToRegister.password"> </ion-input>
+  
+    <!-- BUTTONS -->
+    <ion-button expand = "full"  (click)="tryRegister()">
+        Signup
+    </ion-button>
+</ion-content>

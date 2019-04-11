@@ -50,7 +50,10 @@ export class AuthService {
         };
         this.userCollection.doc(user.user.uid).set(userInfo);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        throw(error);
+      });
   }
 
   emailLogin(user: Auth) {

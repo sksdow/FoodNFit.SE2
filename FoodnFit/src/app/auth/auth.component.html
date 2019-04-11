@@ -1,22 +1,53 @@
 <ion-header>
-    <ion-toolbar class="rednav">
-      <ion-title class="title">
+    <ion-toolbar>
+      <ion-title>
         Authentication
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="bgred">
+  <!--
+  <ion-content>
+    
     <ion-item>
       <ion-label>Register</ion-label>
       <ion-input placeholder="email" [(ngModel)]="userToRegister.email"></ion-input>
       <ion-input placeholder="password" [(ngModel)]="userToRegister.password"></ion-input>
-      <ion-button class="blackbtn" (click)="tryRegister()">register user</ion-button>
+      <ion-button (click)="tryRegister()">register user</ion-button>
     </ion-item>
     <ion-item>
       <ion-label>Login</ion-label>
       <ion-input placeholder="email" [(ngModel)]="userToLogin.email"></ion-input>
       <ion-input placeholder="password" [(ngModel)]="userToLogin.password"></ion-input>
-      <ion-button class="blackbtn" (click)="tryLogin()">login</ion-button>
+      <ion-button (click)="tryLogin()">login</ion-button>
     </ion-item>
+ 
+
+  <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input placeholder="Your email address" [(ngModel)] = "userToRegister.email"></ion-input>
+    </ion-item>
+    
   </ion-content>
+-->
+<ion-content padding>
+    
+  <!-- INPUTS -->
+  <ion-label stacked>Email</ion-label>
+  <ion-input placeholder="Your email address" [(ngModel)]="userToLogin.email"> </ion-input>
+
+  <ion-label stacked>Password</ion-label>
+  <ion-input  placeholder="Your password" [(ngModel)] = "userToLogin.password"> </ion-input>
+
+  <!-- BUTTONS -->
+  <ion-button expand = "full"  (click)="tryLogin()">
+      Log In
+  </ion-button>
   
+  <ion-button fill='clear' expand = "full" (click)="goToSignup()">
+    Create a new account
+  </ion-button>
+
+  <ion-button block fill='clear' expand = "full" (click)="goToResetPassword()">
+    I forgot my password :(
+  </ion-button>
+</ion-content>
