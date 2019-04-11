@@ -1,11 +1,11 @@
 <ion-header>
-    <ion-toolbar class="rednav">
-      <ion-title class="title">
-        Authentication
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <!--
+  <ion-toolbar class="rednav">
+    <ion-title class="title">
+      Authentication
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--
   <ion-content>
     
     <ion-item>
@@ -30,24 +30,30 @@
   </ion-content>
 -->
 <ion-content padding class="bgred">
-    
   <!-- INPUTS -->
   <ion-label stacked>Email</ion-label>
-  <ion-input placeholder="Your email address" [(ngModel)]="userToLogin.email"> </ion-input>
+  <ion-input placeholder="Your email address" [(ngModel)]="userToLogin.email">
+  </ion-input>
 
   <ion-label stacked>Password</ion-label>
-  <ion-input  placeholder="Your password" [(ngModel)] = "userToLogin.password"> </ion-input>
+  <ion-input placeholder="Your password" [(ngModel)]="userToLogin.password">
+  </ion-input>
 
   <!-- BUTTONS -->
-  <ion-button class="blackbtn" expand = "full"  (click)="tryLogin()">
+  <div>
+    <ion-button class="blackbtn" (click)="tryLogin()">
       Log In
-  </ion-button>
-  
-  <ion-button class="blackbtn" expand = "full" (click)="goToSignup()">
-    Create a new account
-  </ion-button>
+    </ion-button>
+  </div>
+  <div>
+    <ion-button class="blackbtn" (click)="goToSignup()">
+      Create a new account
+    </ion-button>
+  </div>
 
-  <ion-button class="blackbtn" block expand = "full">
-    I forgot my password :(
-  </ion-button>
+  <div>
+    <ion-button class="blackbtn" block>
+      I forgot my password :(
+    </ion-button>
+  </div>
 </ion-content>

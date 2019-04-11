@@ -31,7 +31,8 @@
     <div *ngFor="let food of userInfo.DietHistory">
       {{ food.date }} &nbsp;
       {{ food.recipe.title }}
-      <ion-button (click)="deleteFood(food)">delete</ion-button>
+      <ion-img style="height: 30%; width:30%" [src]="food.recipe.image"></ion-img>
+      <ion-button class="blackbtn" (click)="deleteFood(food)">delete</ion-button>
     </div>
   </div>
   <div *ngIf="userInfo">
