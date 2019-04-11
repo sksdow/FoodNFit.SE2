@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
   userToRegister: Auth = { email: "", password: "" };
-  userToLogin: Auth = { email: "", password: "" };
+  userToLogin: Auth = { email: "test@test.com", password: "123456" };
 
   constructor(
     private authService: AuthService,
