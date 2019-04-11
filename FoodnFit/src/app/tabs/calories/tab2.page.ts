@@ -23,8 +23,8 @@ export class Tab2Page {
   display:Calorie = {
     BMR:0,
     BMI:0,
-    TDEE:0
-    //total cal
+    TDEE:0,
+    TotalCal:0
   };
   constructor(private dataService: DataService) {}
 
@@ -35,18 +35,19 @@ export class Tab2Page {
         //call function
         //set ==
         console.log(this.userInfo.DietHistory);
-        // let totalCalorie = 0;
-        // this.userInfo.DietHistory.forEach(
-        //   x => {
-        //     if (x.date >= new Date().) {
-        //       x.recipe.nutrition.nutrients.forEach(
-        //         y => totalCalorie += y.amount
-        //       )
-        //     }
-        //   }
-        // )
+         let totalCalorie = 0;
+         this.userInfo.DietHistory.forEach(
+           x => {
+             if (new Date(x.date).getDay() >= (new Date()).getDay()) {
+               x.recipe.nutrition.nutrients.forEach(
+                 y => totalCalorie += y.amount
+               )
+             }
+           }
+         )
         this.mainCalculator();
         subscription.unsubscribe();
+        this.display.TotalCal = totalCalorie;
       }
     });
   }

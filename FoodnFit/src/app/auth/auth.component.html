@@ -1,6 +1,6 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>
+    <ion-toolbar class="rednav">
+      <ion-title class="title">
         Authentication
       </ion-title>
     </ion-toolbar>
@@ -29,7 +29,7 @@
     
   </ion-content>
 -->
-<ion-content padding>
+<ion-content padding class="bgred">
     
   <!-- INPUTS -->
   <ion-label stacked>Email</ion-label>
@@ -39,15 +39,15 @@
   <ion-input  placeholder="Your password" [(ngModel)] = "userToLogin.password"> </ion-input>
 
   <!-- BUTTONS -->
-  <ion-button expand = "full"  (click)="tryLogin()">
+  <ion-button class="blackbtn" expand = "full"  (click)="tryLogin()">
       Log In
   </ion-button>
   
-  <ion-button fill='clear' expand = "full" (click)="goToSignup()">
+  <ion-button class="blackbtn" expand = "full" (click)="goToSignup()">
     Create a new account
   </ion-button>
 
-  <ion-button block fill='clear' expand = "full" (click)="goToResetPassword()">
+  <ion-button class="blackbtn" block expand = "full">
     I forgot my password :(
   </ion-button>
 </ion-content>

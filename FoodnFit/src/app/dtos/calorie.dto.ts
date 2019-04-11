@@ -4,4 +4,5 @@ export interface Calorie{
     BMI;
     BMR;
     TDEE;
+    TotalCal;
 }
