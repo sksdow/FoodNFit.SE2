@@ -1,0 +1,77 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Calories
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  Implement calories calculator
+  <div *ngIf="userInfo && userInfo?.DietHistory">
+    food Consumptions:
+    <div *ngFor="let food of userInfo.DietHistory">
+      {{food.date}} &nbsp;
+      {{food.recipe.title}}
+      <ion-button (click)="deleteFood(food)">delete</ion-button>
+    </div>
+  </div>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar class="rednav">
+    <ion-title class="title">
+      Calories
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bgred">
+  <div *ngIf="userInfo && userInfo?.DietHistory">
+    food Consumptions:
+    <div *ngFor="let food of userInfo.DietHistory">
+      {{ food.date }} &nbsp;
+      {{ food.recipe.title }}
+      <ion-button (click)="deleteFood(food)">delete</ion-button>
+    </div>
+  </div>
+  <div *ngIf="userInfo">
+      BMR or Basal Metabolic Rate, is the measure of the amount of calories you would burn during a day of rest.<br>
+      Yours is {{display.BMR}}<br>
+      BMI or Body Mass Index, is the measure of body fat based on your height and weight.<br>
+      Yours is {{display.BMI}}<br>
+      TDEE or Total Daily Energy Expenditure is the measure of the the amount of
+      calories we burn during a day, it takes into account the BMR and activity level. <br>
+      Yours is {{display.TDEE}}<br>
+      If youre trying to lose weight(cut) you need to eat at {{display.TDEE-500}} calories per day.<br>
+      If youre trying to maintain your current weight you need to eat at {{display.TDEE}} calories per day. <br>
+      If youre trying to gain weight(bulk) you need to eat at {{display.TDEE+500}} calories per day.<br>
+      Total Calories for today : {{display.TotalCal}}
+
+
+
+  </div>
+  <!-- <ion-item>
+    <ion-label> Age</ion-label>
+    <ion-input placeholder="name" [(ngModel)]="userInfo.age"></ion-input>
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label> Weight</ion-label>
+    <ion-input placeholder="name" [(ngModel)]="userInfo.weight"></ion-input>
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label> Height(in inches)</ion-label>
+    <ion-input placeholder="name" [(ngModel)]="userInfo.height"></ion-input>
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label> Gender(m/f)</ion-label>
+    <ion-input placeholder="name" [(ngModel)]="userInfo.gender"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label> Activity Level</ion-label>
+    <ion-input placeholder="name" [(ngModel)]="userInfo.activitylevel"></ion-input>
+    <ion-button (click)="updateUserInfo()">confirm</ion-button>
+  </ion-item> -->
+</ion-content>
