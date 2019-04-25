@@ -14,6 +14,7 @@ export class Tab1Page {
   currentIngredients: string[] = [];
   ingredientToAdd: string;
   searchResults: RecipeDetailed[];
+  displayInfo = {};
   constructor(private dataService: DataService) {}
 
   searchRecipes() {
@@ -22,10 +23,22 @@ export class Tab1Page {
       .subscribe(x => {
         if (x !== null) {
           this.searchResults = x;
-          console.log(x);
+          // console.log(x);
           subscription.unsubscribe();
         }
       });
+  }
+
+  displayRecipeInfo(recipe: RecipeDetailed) {
+    this.displayInfo[recipe.title] = 0;
+    recipe.nutrition.nutrients.forEach(
+      y => this.displayInfo[recipe.title] += y.amount
+    )
+    this.displayInfo[recipe.title] = this.displayInfo[recipe.title].toFixed(2);
+  }
+
+  hideRecipeInfo(recipe: RecipeDetailed) {
+    this.displayInfo[recipe.title] = false;
   }
 
   addFoodToUser(recipe: RecipeDetailed) {

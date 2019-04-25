@@ -1,8 +1,7 @@
 import { Component, OnInit, DefaultIterableDiffer } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
 import { User, Consumption } from "src/app/dtos/user.dto";
-import { Calorie } from 'src/app/dtos/calorie.dto';
-
+import { Calorie } from "src/app/dtos/calorie.dto";
 
 @Component({
   selector: "app-tab2",
@@ -13,19 +12,20 @@ export class Tab2Page {
   userInfo: User = {
     email: "test",
     name: "test",
-    height: 0.00,
-    weight: 0.00,
+    height: 0.0,
+    weight: 0.0,
     age: 0,
-    gender: 'm',
+    gender: "m",
     activitylevel: 0
   };
-  
-  display:Calorie = {
-    BMR:0,
-    BMI:0,
-    TDEE:0,
-    TotalCal:0
+
+  display: Calorie = {
+    BMR: 0,
+    BMI: 0,
+    TDEE: 0,
+    TotalCal: 0
   };
+  recipeCalorie = {};
   constructor(private dataService: DataService) {}
 
   ionViewWillEnter() {
@@ -35,90 +35,89 @@ export class Tab2Page {
         //call function
         //set ==
         console.log(this.userInfo.DietHistory);
-         let totalCalorie = 0;
-         this.userInfo.DietHistory.forEach(
-           x => {
-             if (new Date(x.date).getDay() >= (new Date()).getDay()) {
-               x.recipe.nutrition.nutrients.forEach(
-                 y => totalCalorie += y.amount
-               )
-             }
-           }
-         )
+        let totalCalorie = 0;
+        this.userInfo.DietHistory.forEach(x => {
+          if (new Date(x.date).getDay() >= new Date().getDay()) {
+            this.recipeCalorie[x.recipe.title] = 0;
+            x.recipe.nutrition.nutrients.forEach(y => {
+              totalCalorie += y.amount;
+              this.recipeCalorie[x.recipe.title] += y.amount;
+            });
+            this.recipeCalorie[x.recipe.title] = this.recipeCalorie[x.recipe.title].toFixed(2);
+          }
+        });
         this.mainCalculator();
         subscription.unsubscribe();
-        this.display.TotalCal = totalCalorie;
+        this.display.TotalCal = totalCalorie.toFixed(2);
       }
     });
   }
 
   deleteFood(food: Consumption) {
-    const subscription = this.dataService.deleteFoodFromUser(food).subscribe(x => {
-      if (x) {
-        this.dataService.getUserInfo().subscribe(info => {
-          if (info) {
-            this.userInfo = info;
-            subscription.unsubscribe();
-          }
-        });
-      }
-    });
+    const subscription = this.dataService
+      .deleteFoodFromUser(food)
+      .subscribe(x => {
+        if (x) {
+          this.dataService.getUserInfo().subscribe(info => {
+            if (info) {
+              this.userInfo = info;
+              subscription.unsubscribe();
+            }
+          });
+        }
+      });
   }
   //make display method
-  mainCalculator(){
-  let height = this.userInfo.height;
-  let weight = this.userInfo.weight;
-  let age = this.userInfo.age;
-  let activityLevel = this.userInfo.activitylevel;
-  let gender = this.userInfo.gender;
-  console.log(this.userInfo);
-  //  let height = 70;
-  //  let weight = 170;
-  //  let age = 21;
-  //  let activityLevel = 4;
-  //  let gender = "m";
+  mainCalculator() {
+    let height = this.userInfo.height;
+    let weight = this.userInfo.weight;
+    let age = this.userInfo.age;
+    let activityLevel = this.userInfo.activitylevel;
+    let gender = this.userInfo.gender;
+    console.log(this.userInfo);
+    //  let height = 70;
+    //  let weight = 170;
+    //  let age = 21;
+    //  let activityLevel = 4;
+    //  let gender = "m";
 
-  weight = weight * .45359;
-  height = height * 2.54;
+    weight = weight * 0.45359;
+    height = height * 2.54;
 
-  //get BMR
-  if(gender == 'm')
-		{
-			this.display.BMR = (66+(13.75 * weight+(5 * height)-(6.8 * age)));
-		}
-		else
-		{
-			this.display.BMR = (655+(9.6 * weight) + (1.8 * height - (4.7 * age)));
+    //get BMR
+    if (gender == "m") {
+      this.display.BMR = 66 + (13.75 * weight + 5 * height - 6.8 * age);
+    } else {
+      this.display.BMR = 655 + 9.6 * weight + (1.8 * height - 4.7 * age);
     }
-    this.display.BMR = Math.round(this.display.BMR*100);
-    this.display.BMR = this.display.BMR/100;
+    this.display.BMR = Math.round(this.display.BMR * 100);
+    this.display.BMR = this.display.BMR / 100;
 
     //getTDEE
-    switch (activityLevel)
-		{
-		case "1":
-    this.display.TDEE = this.display.BMR*1.2;
-			break;
-		case "2":
-    this.display.TDEE = this.display.BMR *1.375;
-			break;
-		case "3":
-    this.display.TDEE = this.display.BMR *1.55;
-			break;
-		case "4":
-    this.display.TDEE = this.display.BMR *1.725;
-			break;
-		case "5":
-    this.display.TDEE  = this.display.BMR * 1.9;
-			break;
+    switch (activityLevel) {
+      case "1":
+        this.display.TDEE = this.display.BMR * 1.2;
+        break;
+      case "2":
+        this.display.TDEE = this.display.BMR * 1.375;
+        break;
+      case "3":
+        this.display.TDEE = this.display.BMR * 1.55;
+        break;
+      case "4":
+        this.display.TDEE = this.display.BMR * 1.725;
+        break;
+      case "5":
+        this.display.TDEE = this.display.BMR * 1.9;
+        break;
     }
-    this.display.TDEE = Math.round(this.display.TDEE*100);
-		this.display.TDEE = this.display.TDEE/100;
+    this.display.TDEE = Math.round(this.display.TDEE * 100);
+    this.display.TDEE = this.display.TDEE / 100;
 
-    this.display.BMI = (weight/(height*height))*703;
-		this.display.BMI = Math.round(this.display.BMI*100);
-		this.display.BMI = this.display.BMI/100;
+    this.display.BMI = (weight / (height * height)) * 703;
+    this.display.BMI = Math.round(this.display.BMI * 100);
+    this.display.BMI = this.display.BMI / 100;
 
-    console.log(this.display.BMI, this.display.TDEE, this.display.BMR)
-}
+    console.log(this.display.BMI, this.display.TDEE, this.display.BMR);
+  }
 }
